@@ -1,16 +1,56 @@
-# floodguard_ai
+# 🌊 FloodGuard AI
 
-A new Flutter project.
+## Hyperlocal Flood Risk & Response Platform
 
-## Getting Started
+FloodGuard AI is a smart flood monitoring and early warning mobile application built with Flutter.
+It provides real-time flood alerts, AI-based risk prediction, and interactive maps to help communities prepare and respond effectively.
 
-This project is a starting point for a Flutter application.
+# 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+📍 Real-time Flood Monitoring
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+🗺️ Interactive Map with Risk Zones
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+🤖 AI Flood Risk Prediction
+
+🌧️ Weather Data Integration
+
+📊 Historical Flood Data
+
+# 🛠️ Built With
+
+Flutter – Cross-platform mobile development
+
+Dart – Programming language
+
+Firebase – Backend & Authentication
+
+Google Maps API – Map visualization
+
+AI Model Integration (Nano Banana / Firebase AI)
+
+# 🧠 How It Works
+
+Collects weather and rainfall data via API
+
+Processes data using AI risk model
+
+Displays flood-prone zones on interactive map
+
+Sends alerts when risk level increases
+
+# ⚙️ Installation
+git clone https://github.com/yourusername/floodguard-ai.git
+cd floodguard-ai
+flutter pub get
+flutter run
+
+# 👥 Team
+
+Ashlee Sia Wei Tien
+
+Han Zhi Chou
+
+Yeoh Jia Poh
+
+Tam Kai Dit
