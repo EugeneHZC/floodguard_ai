@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("FloodGuard AI"),
         backgroundColor: const Color(0xFF0D47A1),
+        foregroundColor: Colors.white,
         actions: [
           IconButton(
             onPressed: () async {
@@ -38,17 +39,8 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Welcome Text
-              Text(
-                'Welcome,',
-                style: TextStyle(fontSize: 16, color: Colors.grey[700]),
-              ),
-              Text(
-                user?.email ?? "User",
-                style: const TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              Text('Welcome,', style: TextStyle(fontSize: 16, color: Colors.grey[700])),
+              Text(user?.email ?? "User", style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
 
               const SizedBox(height: 25),
 
@@ -57,10 +49,7 @@ class HomePage extends StatelessWidget {
 
               const SizedBox(height: 30),
 
-              const Text(
-                "Quick Actions",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
+              const Text("Quick Actions", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               const SizedBox(height: 15),
 
               //Button Row
@@ -86,9 +75,7 @@ class HomePage extends StatelessWidget {
                     icon: Icons.report,
                     label: "Report Flood",
                     onTap: () {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text("Feature coming soon")),
-                      );
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Feature coming soon")));
                     },
                   ),
                   _actionButton(
@@ -96,9 +83,7 @@ class HomePage extends StatelessWidget {
                     icon: Icons.notifications,
                     label: "Alerts",
                     onTap: () {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text("Alerts coming soon")),
-                      );
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Alerts coming soon")));
                     },
                   ),
                   _actionButton(
@@ -142,11 +127,7 @@ class HomePage extends StatelessWidget {
           SizedBox(height: 5),
           Text(
             "MODERATE",
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.orange,
-            ),
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.orange),
           ),
         ],
       ),
@@ -170,16 +151,11 @@ class HomePage extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(15),
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.black12,
-                  blurRadius: 8,
-                  offset: Offset(0, 4),
-                ),
-              ],
+              boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 4))],
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Icon(icon, size: 30, color: const Color(0xFF0D47A1)),
                 const SizedBox(height: 8),
