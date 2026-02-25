@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -40,8 +41,8 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCL5bigunhY80aKBTZHnrwgrse4zcP3jOI',
+  static FirebaseOptions get web => FirebaseOptions(
+    apiKey: dotenv.env['MAPS_API_KEY'] ?? '',
     appId: '1:740649181384:web:38fa411dc7560a22f1c5fd',
     messagingSenderId: '740649181384',
     projectId: 'floodguardai-37df5',
@@ -50,16 +51,16 @@ class DefaultFirebaseOptions {
     measurementId: 'G-D7QZ1F39V0',
   );
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyB_9FK2Dy5wtqR3pjbncHD8UYmxiLtzd-Y',
+  static FirebaseOptions get android => FirebaseOptions(
+    apiKey: dotenv.env['MAPS_API_KEY'] ?? '',
     appId: '1:740649181384:android:29b4519101b14037f1c5fd',
     messagingSenderId: '740649181384',
     projectId: 'floodguardai-37df5',
     storageBucket: 'floodguardai-37df5.firebasestorage.app',
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBbDngAYYa-EcHDYcZ2_t21uwjkMcqoHAg',
+  static FirebaseOptions get ios => FirebaseOptions(
+    apiKey: dotenv.env['MAPS_API_KEY'] ?? '',
     appId: '1:740649181384:ios:5ccfbf3e242750f5f1c5fd',
     messagingSenderId: '740649181384',
     projectId: 'floodguardai-37df5',
@@ -67,8 +68,8 @@ class DefaultFirebaseOptions {
     iosBundleId: 'com.example.floodguardAi',
   );
 
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBbDngAYYa-EcHDYcZ2_t21uwjkMcqoHAg',
+  static FirebaseOptions get macos => FirebaseOptions(
+    apiKey: dotenv.env['MAPS_API_KEY'] ?? '',
     appId: '1:740649181384:ios:5ccfbf3e242750f5f1c5fd',
     messagingSenderId: '740649181384',
     projectId: 'floodguardai-37df5',
@@ -76,8 +77,8 @@ class DefaultFirebaseOptions {
     iosBundleId: 'com.example.floodguardAi',
   );
 
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCL5bigunhY80aKBTZHnrwgrse4zcP3jOI',
+  static FirebaseOptions get windows => FirebaseOptions(
+    apiKey: dotenv.env['MAPS_API_KEY'] ?? '',
     appId: '1:740649181384:web:6ef5af50f670a5c4f1c5fd',
     messagingSenderId: '740649181384',
     projectId: 'floodguardai-37df5',
