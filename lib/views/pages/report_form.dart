@@ -23,7 +23,18 @@ class _ReportFormState extends State<ReportForm> {
       'timestamp': FieldValue.serverTimestamp(),
     });
 
-    Navigator.pop(context);
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Report submitted successfully'),
+        backgroundColor: Colors.green,
+        duration: Duration(seconds: 2),
+      ),
+    );
+
+    
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.pop(context);
+    });
   }
 
   @override
