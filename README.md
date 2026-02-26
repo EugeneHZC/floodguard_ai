@@ -1,13 +1,15 @@
-# 🌊 FloodGuard AI  
-AI-Powered Hyperlocal Flood Risk & Response Platform  
+# 🌊 FloodGuard AI
 
-## 📌 Project Description  
+AI-Powered Hyperlocal Flood Risk & Response Platform
 
-FloodGuard AI is a smart flood risk prediction and emergency response mobile application built using Flutter and Google technologies.  
+## 📌 Project Description
+
+FloodGuard AI is a smart flood risk prediction and emergency response mobile application built using Flutter and Google technologies.
 
 Flooding is one of the most frequent and destructive natural disasters, especially in vulnerable communities with limited early warning systems. Many existing systems provide general alerts but lack **hyperlocal, real-time, AI-driven insights** that help individuals take immediate action.
 
 FloodGuard AI solves this problem by:
+
 - Providing AI-based flood risk predictions
 - Visualizing risk levels on an interactive map
 - Offering actionable safety recommendations
@@ -17,7 +19,9 @@ FloodGuard AI solves this problem by:
 ## 🎯 Alignment with AI & Sustainable Development Goals (SDGs)
 
 ### 🤖 Artificial Intelligence
+
 FloodGuard AI uses machine learning models to:
+
 - Analyze rainfall data
 - Evaluate historical flood patterns
 - Classify flood risk levels (Low, Medium, High)
@@ -42,7 +46,7 @@ FloodGuard AI directly supports:
 
 ## 🚀 Key Features
 
-- 🌧️ Real-time flood risk prediction
+- 🌧️ Real-time flood risk prediction and weather forecasts
 - 🗺️ Interactive Google Maps visualization
 - 📊 Historical flood data insights
 - 🤖 AI-generated safety recommendations
@@ -52,11 +56,13 @@ FloodGuard AI directly supports:
 ## 🛠 Technical Implementation
 
 ### 💻 Frontend
+
 - Flutter (Cross-platform mobile development)
 - Google Maps API (Location & visualization)
 - Firebase Cloud Messaging (Push notifications)
 
 ### ☁️ Backend
+
 - Firebase Firestore (Real-time database)
 - Firebase Authentication (Secure login system)
 - AI Prediction Model (Risk classification algorithm)
@@ -74,6 +80,9 @@ We used **Firebase Firestore** for real-time cloud data storage.
 We used **Firebase Cloud Messaging (FCM)** for push notifications.  
 → This enables immediate flood warnings, improving emergency response time.
 
+We used **OpenWeather** to get real time weather forecasts.  
+→ This allows users to view weather forecasts of most locations in Malaysia.
+
 We used **Flutter** as the development framework.  
 → This ensures cross-platform accessibility (Android & iOS) with high performance.
 
@@ -82,6 +91,8 @@ We used **Flutter** as the development framework.
 ## 📦 Setup Instructions
 
 ### 1️⃣ Clone the repository
+
 ```bash
 git clone https://github.com/EugeneHZC/floodguard-ai.git
 cd floodguard-ai
+```
