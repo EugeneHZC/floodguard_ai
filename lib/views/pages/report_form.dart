@@ -67,7 +67,7 @@ class _ReportFormState extends State<ReportForm> {
 
             const SizedBox(height: 20),
 
-            CustomButton(buttonText: "Submit Report", callback: _submitReport),
+            CustomButton(buttonText: "Submit Report", callback: _submitReport, isLoading: false),
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:floodguard_ai/views/pages/register_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:floodguard_ai/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -32,10 +33,7 @@ class _LoginPageState extends State<LoginPage> {
     });
 
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
+      await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
       // success -> AuthGate will handle navigation
     } catch (e) {
       setState(() {
@@ -73,20 +71,13 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 10),
                   const Text(
                     'FloodGuard AI',
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
                   ),
                   const SizedBox(height: 30),
                   // Card
                   Container(
                     padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
+                    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)),
                     child: Column(
                       children: [
                         TextField(
@@ -95,9 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                           decoration: InputDecoration(
                             labelText: 'Email',
                             prefixIcon: Icon(Icons.email),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
+                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                           ),
                         ),
                         const SizedBox(height: 15),
@@ -107,41 +96,23 @@ class _LoginPageState extends State<LoginPage> {
                           decoration: InputDecoration(
                             labelText: "Password",
                             prefixIcon: Icon(Icons.lock),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
+                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                           ),
                         ),
 
                         const SizedBox(height: 10),
 
-                        if (errorMessage != null)
-                          Text(
-                            errorMessage!,
-                            style: const TextStyle(color: Colors.red),
-                          ),
+                        if (errorMessage != null) Text(errorMessage!, style: const TextStyle(color: Colors.red)),
 
                         const SizedBox(height: 20),
 
                         SizedBox(
                           width: double.infinity,
                           height: 50,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF0D47A1),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                            ),
-                            onPressed: isLoading ? null : login,
-                            child: isLoading
-                                ? const CircularProgressIndicator(
-                                    color: Colors.white,
-                                  )
-                                : const Text(
-                                    "Login",
-                                    style: TextStyle(fontSize: 18),
-                                  ),
+                          child: CustomButton(
+                            buttonText: "Login",
+                            callback: isLoading ? null : login,
+                            isLoading: isLoading,
                           ),
                         ),
                       ],
@@ -159,10 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       );
                     },
-                    child: const Text(
-                      "Don't have an account? Sign Up",
-                      style: TextStyle(color: Colors.white),
-                    ),
+                    child: const Text("Don't have an account? Sign Up", style: TextStyle(color: Colors.white)),
                   ),
                 ],
               ),

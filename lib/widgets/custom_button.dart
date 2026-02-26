@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, required this.buttonText, required this.callback});
+  const CustomButton({super.key, required this.buttonText, required this.callback, required this.isLoading});
 
   final String buttonText;
-  final VoidCallback callback;
+  final VoidCallback? callback;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +15,11 @@ class CustomButton extends StatelessWidget {
         minimumSize: Size(1000, 50),
         backgroundColor: Color(0xFF0D47A1),
         foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
-      child: Text(buttonText, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+      child: isLoading
+          ? CircularProgressIndicator(color: Colors.white)
+          : Text(buttonText, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
     );
   }
 }

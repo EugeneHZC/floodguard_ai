@@ -1,4 +1,5 @@
 import 'package:floodguard_ai/widgets/custom_appbar.dart';
+import 'package:floodguard_ai/widgets/custom_floating_action_button.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'report_form.dart';
@@ -8,18 +9,15 @@ class CommunityReportPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void onButtonClicked() {
+      Navigator.push(context, MaterialPageRoute(builder: (_) => const ReportForm()));
+    }
+
     return Scaffold(
       appBar: CustomAppbar(title: "Community Flood Reports", actions: []),
 
       // 🔹 Floating button to add report
-      floatingActionButton: FloatingActionButton(
-        foregroundColor: Colors.white,
-        backgroundColor: const Color(0xFF0D47A1),
-        child: const Icon(Icons.add),
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (_) => const ReportForm()));
-        },
-      ),
+      floatingActionButton: CustomFloatingActionButton(callback: onButtonClicked),
 
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection('reports').orderBy('timestamp', descending: true).snapshots(),

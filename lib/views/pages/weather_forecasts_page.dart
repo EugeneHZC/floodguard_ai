@@ -1,4 +1,5 @@
 import 'package:floodguard_ai/widgets/custom_appbar.dart';
+import 'package:floodguard_ai/widgets/custom_floating_action_button.dart';
 import 'package:floodguard_ai/widgets/weather_forecast_tile.dart';
 import 'package:floodguard_ai/views/pages/add_weather_forecast_page.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +32,14 @@ class _WeatherForecastsPageState extends State<WeatherForecastsPage> {
 
   @override
   Widget build(BuildContext context) {
+    void onPressed() async {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => AddWeatherForecastPage(loadPage: getWeatherForecasts)),
+      );
+      await getWeatherForecasts();
+    }
+
     return Scaffold(
       appBar: CustomAppbar(title: "Weather Forecasts", actions: []),
       body: Padding(
@@ -58,17 +67,7 @@ class _WeatherForecastsPageState extends State<WeatherForecastsPage> {
                 },
               ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          await Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => AddWeatherForecastPage(loadPage: getWeatherForecasts)),
-          );
-          await getWeatherForecasts();
-        },
-        backgroundColor: Color(0xFFBBDEFB),
-        child: Text("+", style: TextStyle(fontSize: 25)),
-      ),
+      floatingActionButton: CustomFloatingActionButton(callback: onPressed),
     );
   }
 }

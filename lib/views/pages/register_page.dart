@@ -1,3 +1,4 @@
+import 'package:floodguard_ai/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -11,8 +12,7 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
 
   String? errorMessage;
   String? successMessage;
@@ -49,10 +49,7 @@ class _RegisterPageState extends State<RegisterPage> {
     }
 
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
       setState(() {
         successMessage = "Registration successful";
         isLoading = false;
@@ -61,7 +58,7 @@ class _RegisterPageState extends State<RegisterPage> {
       // After successful registration, AuthGate will auto-redirect
     } on FirebaseAuthException catch (e) {
       setState(() {
-        errorMessage = e.message ?? "Invalid registration details";
+        errorMessage = "Invalid registration details";
         isLoading = false;
         emailController.clear();
         passwordController.clear();
@@ -97,21 +94,14 @@ class _RegisterPageState extends State<RegisterPage> {
                   const SizedBox(height: 10),
                   const Text(
                     'Create Account',
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
                   ),
 
                   const SizedBox(height: 30),
 
                   Container(
                     padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
+                    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)),
                     child: Column(
                       children: [
                         TextField(
@@ -120,9 +110,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           decoration: InputDecoration(
                             labelText: 'Email',
                             prefixIcon: const Icon(Icons.email),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
+                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                           ),
                         ),
 
@@ -134,9 +122,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           decoration: InputDecoration(
                             labelText: 'Password',
                             prefixIcon: const Icon(Icons.lock),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
+                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                           ),
                         ),
 
@@ -148,27 +134,18 @@ class _RegisterPageState extends State<RegisterPage> {
                           decoration: InputDecoration(
                             labelText: 'Confirm Password',
                             prefixIcon: const Icon(Icons.lock_outline),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
+                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                           ),
                         ),
 
                         const SizedBox(height: 10),
 
-                        if (errorMessage != null)
-                          Text(
-                            errorMessage!,
-                            style: const TextStyle(color: Colors.red),
-                          ),
+                        if (errorMessage != null) Text(errorMessage!, style: const TextStyle(color: Colors.red)),
 
                         if (successMessage != null)
                           Text(
                             successMessage!,
-                            style: const TextStyle(
-                              color: Colors.green,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: const TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
                           ),
 
                         const SizedBox(height: 15),
@@ -176,22 +153,10 @@ class _RegisterPageState extends State<RegisterPage> {
                         SizedBox(
                           width: double.infinity,
                           height: 50,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF0D47A1),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                            ),
-                            onPressed: isLoading ? null : registerUser,
-                            child: isLoading
-                                ? const CircularProgressIndicator(
-                                    color: Colors.white,
-                                  )
-                                : const Text(
-                                    "Register",
-                                    style: TextStyle(fontSize: 18),
-                                  ),
+                          child: CustomButton(
+                            buttonText: "Register",
+                            callback: isLoading ? null : registerUser,
+                            isLoading: isLoading,
                           ),
                         ),
                       ],
@@ -204,10 +169,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: const Text(
-                      "Already have an account? Login",
-                      style: TextStyle(color: Colors.white),
-                    ),
+                    child: const Text("Already have an account? Login", style: TextStyle(color: Colors.white)),
                   ),
                 ],
               ),

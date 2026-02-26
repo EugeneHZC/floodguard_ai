@@ -19,9 +19,18 @@ class _AddWeatherForecastPageState extends State<AddWeatherForecastPage> {
   String? selectedCity;
   List<csc.State> states = [];
   List<csc.City> cities = [];
+  bool isLoading = false;
 
   void _onAddClicked() async {
+    setState(() {
+      isLoading = true;
+    });
+
     final status = await addWeatherForecast(selectedCity!);
+
+    setState(() {
+      isLoading = false;
+    });
 
     if (status == 0) {
       return showDialog(
@@ -139,7 +148,7 @@ class _AddWeatherForecastPageState extends State<AddWeatherForecastPage> {
             // add button
             Container(
               margin: EdgeInsets.symmetric(vertical: 10),
-              child: CustomButton(buttonText: "Add", callback: _onAddClicked),
+              child: CustomButton(buttonText: "Add", callback: _onAddClicked, isLoading: isLoading),
             ),
           ],
         ),
