@@ -139,7 +139,7 @@ class _AddWeatherForecastPageState extends State<AddWeatherForecastPage> {
                         });
                       },
                     )
-                  : CircularProgressIndicator()
+                  : Center(child: CircularProgressIndicator())
             else
               Text('Please select a state first', style: TextStyle(fontSize: 18)),
 

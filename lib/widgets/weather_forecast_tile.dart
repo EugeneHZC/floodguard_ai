@@ -24,73 +24,101 @@ class WeatherForecastTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 1000,
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(color: Colors.grey),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 5)],
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // location
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(location, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22)),
-                GestureDetector(
-                  onTap: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: Text('Confirmation'),
-                          content: Text('Are you want to delete this weather forecast?'),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                _deleteWeatherForecast();
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  // icon
+                  Icon(Icons.pin_drop, size: 27, color: Colors.red),
 
-                                if (context.mounted) Navigator.pop(context);
-                                loadPage();
-                              },
-                              child: Text("Confirm"),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                if (context.mounted) Navigator.pop(context);
-                              },
-                              child: Text("Cancel"),
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                  },
-                  child: Icon(Icons.delete),
-                ),
-              ],
-            ),
+                  SizedBox(width: 5),
 
-            SizedBox(height: 5),
+                  // location
+                  Text(
+                    location,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22, color: Colors.black),
+                  ),
+                ],
+              ),
 
-            // weather condition
-            Text(
-              weatherCondition,
-              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18, color: Colors.grey[700]),
-            ),
+              // delete button
+              GestureDetector(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Confirmation'),
+                        content: Text('Are you want to delete this weather forecast?'),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              _deleteWeatherForecast();
 
-            SizedBox(height: 5),
+                              if (context.mounted) Navigator.pop(context);
+                              loadPage();
+                            },
+                            child: Text("Confirm"),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              if (context.mounted) Navigator.pop(context);
+                            },
+                            child: Text("Cancel"),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                child: Icon(Icons.delete, color: Colors.red),
+              ),
+            ],
+          ),
 
-            // temperature
-            Text(
-              temperature,
-              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16, color: Colors.grey[700]),
-            ),
-          ],
-        ),
+          SizedBox(height: 10),
+
+          // weather condition
+          Row(
+            children: [
+              Icon(Icons.cloud, color: Colors.grey[500], size: 23),
+
+              SizedBox(width: 10),
+
+              Text(
+                weatherCondition,
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18, color: Colors.grey[700]),
+              ),
+            ],
+          ),
+
+          SizedBox(height: 10),
+
+          // temperature
+          Row(
+            children: [
+              Icon(Icons.thermostat, color: Colors.grey[500], size: 23),
+
+              SizedBox(width: 10),
+
+              Text(
+                temperature,
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18, color: Colors.grey[700]),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
